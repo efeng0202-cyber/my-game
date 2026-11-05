@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Cash Life Simulator</title>
-    <!-- This links the mandatory CodeHS engine -->
+    <!-- CodeHS Engine Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://static.codehs.com/gulp/80550f5fc4071985bfef352d04f005ca3de931d3/chs-js-lib/chs.js"></script>
     <style>
         canvas {
@@ -13,10 +14,15 @@
     </style>
 </head>
 <body>
-    <!-- The CodeHS canvas element where your game draws -->
-    <canvas width="400" height="500" class="codehs-editor-canvas"></canvas>
-    <pre id="console"></pre>
-    
+    <div id="canvas-container"></div>
     <script src="default.js"></script>
+    <script>
+        // Forces the CodeHS start window setup if it got stuck
+        window.onload = function() {
+            if (typeof start === 'function') {
+                start();
+            }
+        };
+    </script>
 </body>
 </html>
